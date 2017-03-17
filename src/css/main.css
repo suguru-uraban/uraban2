@@ -1,0 +1,18 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+html, body, article {
+  width: 100%;
+  height: 100%;
+}
+
+article {
+  position: fixed;
+  top: 0;
+}
