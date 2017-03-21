@@ -1,15 +1,14 @@
-declare function require(x: string): any;
+/// <reference path="component/cover.tsx"/>
 
-let React: any = require("react");
-let ReactDOM: any = require("react-dom");
-
-class Main {
-    constructor() {
-        ReactDOM.render(
-            (<div>Hello React</div>),
-            document.querySelector("#contents")
-        );
+class Main extends React.Component<any, any> {
+    render() {
+        return <div className="wrapper">
+            <Component.Cover />
+        </div>;
     }
 }
 
-new Main();
+ReactDOM.render(
+    <Main />,
+    document.getElementById("contents")
+);

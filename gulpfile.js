@@ -9,18 +9,13 @@ var gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
     ts = require('gulp-typescript'),
-    tsify = require('tsify'),
+    uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     runSequence = require('run-sequence'),
     spritesmith = require('gulp.spritesmith'),
-    browserify = require('browserify'),
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    webserver = require('gulp-webserver'),
-    glob = require('glob');
+    webserver = require('gulp-webserver');
 
 // パスの設定
 var path = {
@@ -45,6 +40,16 @@ gulp.task("clean", function () {
     del([path.tmp]);
 });
 
+//CSSファイルの削除
+gulp.task("cssclean", function () {
+    del([path.css + '*']);
+});
+
+//画像ファイルの削除
+gulp.task("imgclean", function () {
+    del([path.imgmin + '*']);
+});
+
 //------------------------------------------------------
 // HTMLの処理
 //------------------------------------------------------
@@ -58,7 +63,7 @@ gulp.task('html', function() {
 // CSSの処理
 //------------------------------------------------------
 //Sass
-gulp.task('sass', function() {
+gulp.task('sass', function(){
     return sass(path.sass + '**/*.scss',{
         style : 'expanded',
         'sourcemap=none': true,
@@ -90,35 +95,26 @@ gulp.task('cssmin', function () {
 // CSSの処理をまとめる
 gulp.task('css', function(callback) {
     console.log('--------- CSSを処理します ----------');
-    return runSequence('sass','cssmin',callback);
+    return runSequence('cssclean','sass','cssmin',callback);
 });
 
 //------------------------------------------------------
-// React+TypeScriptの処理
+// JavaScriptの処理
 //------------------------------------------------------
-// TypeScriptを処理
-gulp.task('ts', function() {
-    var project = ts.createProject('tsconfig.json', { declaration: false });
-    return project.src()
-    .pipe(plumber())
-    .pipe(project())
-    .pipe(gulp.dest(path.tmp));
+// TypeScriptの処理
+gulp.task("ts", function() {
+  let project = ts.createProject("tsconfig.json", { declaration: false });
+  return project.src()
+  .pipe(plumber())
+  .pipe(project())
+  .pipe(gulp.dest(path.jsmin));
 });
 
-// Reactをrequire
-gulp.task('browserify', function(){
-    return browserify(path.tmp + 'bundle.js')
-    .bundle()
-    .pipe(source('bundle.js'))
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(gulp.dest(path.jsmin));
-});
 
 // JavaScriptの処理をまとめる
 gulp.task('js', function(callback) {
     console.log('--------- JavaScriptを処理します ----------');
-    return runSequence('ts','browserify','clean',callback);
+    return runSequence('ts',callback);
 });
 
 //------------------------------------------------------
@@ -138,7 +134,7 @@ gulp.task('imagemin', function() {
 // 画像の処理をまとめる
 gulp.task('img', function(callback) {
     console.log('--------- 画像を処理します ----------');
-    return runSequence('imagemin',callback);
+    return runSequence('imgclean','imagemin',callback);
 });
 
 //------------------------------------------------------
@@ -165,7 +161,7 @@ gulp.task('spriteBuild', function () {
 // スプライトの処理をまとめる
 gulp.task('sprite', function(callback) {
     console.log('--------- 画像を処理します ----------');
-    return runSequence('spriteBuild','sass',['cssmin','imagemin'],callback);
+    return runSequence('imgclean','spriteBuild','sass',['cssmin','imagemin'],callback);
 });
 
 //------------------------------------------------------
@@ -190,10 +186,5 @@ gulp.task('webserver', function() {
     );
 });
 
-// プロダクト用
-gulp.task('apply-prod-environment', function() {
-    process.env.NODE_ENV = 'production';
-});
-
 // タスクの実行
-gulp.task('default', ['apply-prod-environment','watch','webserver']);
+gulp.task('default', ['img','sprite','watch','webserver']);
