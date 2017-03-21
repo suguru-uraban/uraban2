@@ -1,17 +1,12 @@
-let React = require("react"),
-    ReactDOM = require("react-dom");
+declare function require(x: string): any;
 
-declare function fetch(url: String): any;
-declare function fetch(url: String, option: any): any;
+let React: any = require("react");
+let ReactDOM: any = require("react-dom");
 
 class Main {
     constructor() {
         ReactDOM.render(
-            (
-                <div>
-                    Hello React
-                </div>
-            ),
+            (<div>Hello React</div>),
             document.querySelector("#contents")
         );
     }

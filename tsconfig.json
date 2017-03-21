@@ -3,6 +3,7 @@
         "rewriteTsconfig": true
     },
     "compilerOptions": {
+        "module": "amd",
         "target": "es5",
         "outFile": "bundle.js",
         "removeComments": true,
