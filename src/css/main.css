@@ -1,18 +1,120 @@
+/*
+The provided mixins are intended to be used with the array-like variables
+.icon-home {
+  @include sprite-width($icon-home);
+}
+.icon-email {
+  @include sprite($icon-email);
+}
+Here are example usages in HTML:
+`display: block` sprite:
+<div class="icon-home"></div>
+`display: inline-block` sprite:
+<img class="icon-home" />
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+@include sprites($spritesheet-sprites);
+*/
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 10px;
+  font-size: 1.0rem;
 }
 
-html, body, article {
+html, body {
   width: 100%;
   height: 100%;
 }
 
-article {
-  position: fixed;
-  top: 0;
+a {
+  color: #00a0e9;
+  position: relative;
+}
+a[target=_blank] {
+  padding-right: 12px;
+  position: relative;
+}
+a[target=_blank]:before, a[target=_blank]:after {
+  margin: auto;
+  width: 8px;
+  width: .8rem;
+  height: 7px;
+  height: .7rem;
+  content: "";
+  display: block;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: #00a0e9 solid 1px;
+  background: #ffffff;
+}
+a[target=_blank]:before {
+  right: 2px;
+  right: .2rem;
+  top: 3px;
+  top: .3rem;
+  bottom: 0;
+}
+a[target=_blank]:after {
+  right: 0;
+  top: -1px;
+  top: -.1rem;
+  bottom: 0;
+  border-top-width: 2px;
+  border-top-width: 0.2rem;
+}
+a[target=_blank]:visited {
+  color: #551A8B;
+}
+a[target=_blank]:visited:before, a[target=_blank]:visited:after {
+  border-color: #551A8B;
+}
+
+.cover {
+  padding: 14px;
+  padding: 1.4rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.cover h1 {
+  margin: 0;
+  font-size: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+.cover p {
+  margin: 12px 0 0;
+  margin: 1.2rem 0 0;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.cover figure {
+  text-align: center;
+}
+.cover ul {
+  margin: 18px 0;
+  margin: 1.8rem 0;
+  padding: 0;
+  list-style: none;
+}
+.cover ul li {
+  margin-top: 16px;
+  margin-top: 1.6rem;
+  line-height: 1.2;
+  text-align: center;
+}
+.cover ul li a {
+  font-size: 14px;
+  font-size: 1.4rem;
 }
