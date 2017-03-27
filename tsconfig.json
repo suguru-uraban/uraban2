@@ -3,18 +3,24 @@
         "rewriteTsconfig": true
     },
     "compilerOptions": {
-        "target": "es5",
+        "module": "amd",
         "outFile": "bundle.js",
-        "removeComments": true,
         "noImplicitAny": true,
-        "sourceMap": false,
+        "removeComments": true,
+        "target": "es5",
         "jsx": "react"
     },
     "filesGlob": [
-        "src/ts/*.d.ts",
-        "src/ts/*.tsx"
+        "node_modules/@types/**/*.d.ts",
+        "src/ts/**/*.tsx"
     ],
     "files": [
-        "src/ts/app.tsx"
+        "node_modules/@types/node/index.d.ts",
+        "node_modules/@types/react-dom/index.d.ts",
+        "node_modules/@types/react-dom/server.d.ts",
+        "node_modules/@types/react/index.d.ts",
+        "node_modules/@types/superagent/index.d.ts",
+        "src/ts/app.tsx",
+        "src/ts/component/cover.tsx"
     ]
 }

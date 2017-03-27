@@ -1,20 +1,14 @@
-let React = require("react"),
-    ReactDOM = require("react-dom");
+/// <reference path="component/cover.tsx"/>
 
-declare function fetch(url: String): any;
-declare function fetch(url: String, option: any): any;
-
-class Main {
-    constructor() {
-        ReactDOM.render(
-            (
-                <div>
-                    Hello React
-                </div>
-            ),
-            document.querySelector("#contents")
-        );
+class Main extends React.Component<any, any> {
+    render() {
+        return <div className="wrapper">
+            <Component.Cover />
+        </div>;
     }
 }
 
-new Main();
+ReactDOM.render(
+    <Main />,
+    document.getElementById("contents")
+);

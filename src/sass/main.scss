@@ -1,25 +1,61 @@
 // main.scss
-
-// memo
-// ベンダープレフィックスは基本いらない
-// font-sizeの単位指定はremで（1.4rem→14pxとなる）
-// 色指定は_variable.scssで変数指定する
-// コンポーネント毎のscssファイルはid(#)の下に書いていく
-
 @charset "utf-8";
+
+// variableSCSS
+@import "_variable";
+
+// spriteSCSS
+@import "_sprite";
+@import "_sprite_mixin";
 
 //初期設定
 html {
     font-size: 62.5%;
 }
 body {
-    font-size: 1.6rem;
+    font-size: 1.0rem;
 }
-html, body, article {
+html, body {
     width: 100%;
     height: 100%;
 }
-article {
-    position: fixed;
-    top: 0;
+
+a {
+    color: $linkColor;
+    position: relative;
+    &[target=_blank] {
+        padding-right: 12px;
+        position: relative;
+        &:before, &:after {
+            margin: auto;
+            width: .8rem;
+            height: .7rem;
+            content: "";
+            display: block;
+            position: absolute;
+            box-sizing: border-box;
+            border: $linkColor solid 1px;
+            background: $bgDefaultColor;
+        }
+        &:before {
+            right: .2rem;
+            top: .3rem;
+            bottom: 0
+        }
+        &:after {
+            right: 0;
+            top: -.1rem;
+            bottom: 0;
+            border-top-width: 0.2rem;
+        }
+        &:visited {
+            color: $linkVisitedColor;
+            &:before, &:after {
+                border-color: $linkVisitedColor;
+            }
+        }
+    }
 }
+
+
+@import "_cover";
