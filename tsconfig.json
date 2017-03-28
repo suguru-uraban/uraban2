@@ -21,6 +21,9 @@
         "node_modules/@types/react/index.d.ts",
         "node_modules/@types/superagent/index.d.ts",
         "src/ts/app.tsx",
-        "src/ts/component/cover.tsx"
+        "src/ts/component/cover.tsx",
+        "src/ts/component/header.tsx",
+        "src/ts/component/mainBody.tsx",
+        "src/ts/component/mainBody/navMenu.tsx"
     ]
 }

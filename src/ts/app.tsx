@@ -1,14 +1,19 @@
-/// <reference path="component/cover.tsx"/>
+/// <reference path="component/cover.tsx" />
+/// <reference path="component/header.tsx" />
+/// <reference path="component/mainBody.tsx" />
 
-class Main extends React.Component<any, any> {
+class App extends React.Component<any, any> {
     render() {
-        return <div className="wrapper">
-            <Component.Cover />
-        </div>;
+        return (
+            <div className="wrapper">
+                <Component.Header />
+                <Component.MainBody />
+            </div>
+        );
     }
 }
 
 ReactDOM.render(
-    <Main />,
+    <App />,
     document.getElementById("contents")
 );

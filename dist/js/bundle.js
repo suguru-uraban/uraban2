@@ -28,15 +28,62 @@ var Component;
                     React.createElement("a", { href: "//github.com/youg-uraban/", target: "_blank" }, "github")))));
     };
 })(Component || (Component = {}));
-var Main = (function (_super) {
-    __extends(Main, _super);
-    function Main() {
+var Component;
+(function (Component) {
+    Component.Header = function (props) {
+        return (React.createElement("header", { id: "header" },
+            React.createElement("div", { className: "headerWrap" },
+                React.createElement("h1", null, "uraban.info"),
+                React.createElement("p", { className: "caption" }, "\u30D5\u30ED\u30F3\u30C8\u30A8\u30F3\u30C9\u30A8\u30F3\u30B8\u30CB\u30A2\u30FB\u3046\u3089\u3070\u3093\u306E\u30DD\u30FC\u30C8\u30D5\u30A9\u30EA\u30AA\u517C\u5B9F\u9A13\u5834"))));
+    };
+})(Component || (Component = {}));
+var Component;
+(function (Component) {
+    var Main;
+    (function (Main) {
+        var NavMenu = (function (_super) {
+            __extends(NavMenu, _super);
+            function NavMenu() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            NavMenu.prototype.render = function () {
+                return (React.createElement("nav", { id: "navMenu" },
+                    React.createElement("ul", null,
+                        React.createElement("li", null, "aaa"),
+                        React.createElement("li", null, "bbb"),
+                        React.createElement("li", null, "ccc"),
+                        React.createElement("li", null, "ddd"))));
+            };
+            return NavMenu;
+        }(React.Component));
+        Main.NavMenu = NavMenu;
+    })(Main = Component.Main || (Component.Main = {}));
+})(Component || (Component = {}));
+var Component;
+(function (Component) {
+    var MainBody = (function (_super) {
+        __extends(MainBody, _super);
+        function MainBody() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        MainBody.prototype.render = function () {
+            return (React.createElement("main", { id: "mainBody" },
+                React.createElement(Component.Main.NavMenu, null)));
+        };
+        return MainBody;
+    }(React.Component));
+    Component.MainBody = MainBody;
+})(Component || (Component = {}));
+var App = (function (_super) {
+    __extends(App, _super);
+    function App() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Main.prototype.render = function () {
-        return React.createElement("div", { className: "wrapper" },
-            React.createElement(Component.Cover, null));
+    App.prototype.render = function () {
+        return (React.createElement("div", { className: "wrapper" },
+            React.createElement(Component.Header, null),
+            React.createElement(Component.MainBody, null)));
     };
-    return Main;
+    return App;
 }(React.Component));
-ReactDOM.render(React.createElement(Main, null), document.getElementById("contents"));
+ReactDOM.render(React.createElement(App, null), document.getElementById("contents"));

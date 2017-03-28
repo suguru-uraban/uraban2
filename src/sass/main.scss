@@ -14,6 +14,7 @@ html {
 }
 body {
     font-size: 1.0rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
 }
 html, body {
     width: 100%;
@@ -21,7 +22,6 @@ html, body {
 }
 
 a {
-    color: $linkColor;
     position: relative;
     &[target=_blank] {
         padding-right: 12px;
@@ -34,7 +34,8 @@ a {
             display: block;
             position: absolute;
             box-sizing: border-box;
-            border: $linkColor solid 1px;
+            border-style: solid;
+            border-width: 1px;
             background: $bgDefaultColor;
         }
         &:before {
@@ -48,6 +49,12 @@ a {
             bottom: 0;
             border-top-width: 0.2rem;
         }
+        &:link {
+            color: $linkDefaultColor;
+            &:before, &:after {
+                border-color: $linkDefaultColor;
+            }
+        }
         &:visited {
             color: $linkVisitedColor;
             &:before, &:after {
@@ -57,5 +64,6 @@ a {
     }
 }
 
-
 @import "_cover";
+@import "_header";
+@import "_mainBody";

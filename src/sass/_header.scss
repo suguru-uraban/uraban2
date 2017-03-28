@@ -1,0 +1,49 @@
+// _header.scss
+#header {
+    width: 100%;
+    background: $bgHeaderColor;
+    .headerWrap {
+        margin: 0 auto;
+        box-sizing: border-box;
+        h1 {
+            margin: 0;
+            color: $fontHeaderColor;
+        }
+        .caption {
+            margin-left: 1.6rem;
+            font-size: 1.2rem;
+            display: inline-block;
+            color: $fontHeaderColor;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #header {
+        .headerWrap {
+            padding: 0 .8rem;
+            width: 104rem;
+            h1 {
+                font-size: 3rem;
+                line-height: 1.8;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #header {
+        .headerWrap {
+            padding: .8rem;
+            width: 100%;
+            h1 {
+                font-size: 1.8rem;
+                line-height: 1.4;
+            }
+            .caption {
+                display: none;
+            }
+        }
+    }
+}

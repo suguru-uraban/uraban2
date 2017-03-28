@@ -1,0 +1,19 @@
+// _body.scss
+#mainBody {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) {
+    #mainBody {
+        padding: 0 .8rem;
+        width: 104rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #mainBody {
+        padding: .8rem;
+        width: 100%;
+    }
+}
