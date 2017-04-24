@@ -24,6 +24,6 @@
         "src/ts/component/cover.tsx",
         "src/ts/component/header.tsx",
         "src/ts/component/mainBody.tsx",
-        "src/ts/component/mainBody/navMenu.tsx"
+        "src/ts/component/main/navMenu.tsx"
     ]
 }

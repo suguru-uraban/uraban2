@@ -1,7 +1,10 @@
 // _header.scss
 #header {
     width: 100%;
+    position: fixed;
     background: $bgHeaderColor;
+    box-shadow: .3rem .3rem .2rem rgba(0, 0, 0, .4);
+    z-index: 1;
     .headerWrap {
         margin: 0 auto;
         box-sizing: border-box;

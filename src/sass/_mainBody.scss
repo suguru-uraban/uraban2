@@ -1,4 +1,4 @@
-// _body.scss
+// _mainBody.scss
 #mainBody {
     margin: 0 auto;
     box-sizing: border-box;
@@ -6,7 +6,7 @@
 
 @media screen and (min-width: 768px) {
     #mainBody {
-        padding: 0 .8rem;
+        padding: 5.4rem .8rem 0;
         width: 104rem;
     }
 }
@@ -17,3 +17,5 @@
         width: 100%;
     }
 }
+
+@import "_navMenu";

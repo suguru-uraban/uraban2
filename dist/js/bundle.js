@@ -48,11 +48,12 @@ var Component;
             }
             NavMenu.prototype.render = function () {
                 return (React.createElement("nav", { id: "navMenu" },
+                    React.createElement("p", null, "\u5168\u3066\u8868\u793A"),
                     React.createElement("ul", null,
-                        React.createElement("li", null, "aaa"),
-                        React.createElement("li", null, "bbb"),
-                        React.createElement("li", null, "ccc"),
-                        React.createElement("li", null, "ddd"))));
+                        React.createElement("li", null, "\u81EA\u5DF1\u7D39\u4ECB"),
+                        React.createElement("li", null, "WEB\u6280\u8853\u3042\u308C\u3053\u308C"),
+                        React.createElement("li", null, "\u500B\u4EBA\u4E8B\u696D\u4E3B\u3042\u308C\u3053\u308C"),
+                        React.createElement("li", null, "\u305D\u306E\u4ED6\u3044\u308D\u3044\u308D"))));
             };
             return NavMenu;
         }(React.Component));

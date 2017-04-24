@@ -3,11 +3,12 @@ namespace Component.Main {
         render() {
             return (
                 <nav id="navMenu">
+                    <p>全て表示</p>
                     <ul>
-                        <li>aaa</li>
-                        <li>bbb</li>
-                        <li>ccc</li>
-                        <li>ddd</li>
+                        <li>自己紹介</li>
+                        <li>WEB技術あれこれ</li>
+                        <li>個人事業主あれこれ</li>
+                        <li>その他いろいろ</li>
                     </ul>
                 </nav>
             );
