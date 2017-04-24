@@ -134,8 +134,8 @@ a[target=_blank]:visited:before, a[target=_blank]:visited:after {
   width: 100%;
   position: fixed;
   background: #434343;
-  -webkit-box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.4);
-          box-shadow: 0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 #header .headerWrap {
